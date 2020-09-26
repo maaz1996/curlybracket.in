@@ -1,0 +1,19 @@
+{
+  "name": "curlybracket.in",
+  "version": "1.0.0",
+  "description": "A blog for tech, travel and business",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maaz1996/curlybracket.in.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maaz1996/curlybracket.in/issues"
+  },
+  "homepage": "https://github.com/maaz1996/curlybracket.in#readme"
+}
