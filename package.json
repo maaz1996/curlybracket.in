@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/maaz1996/curlybracket.in/issues"
   },
-  "homepage": "https://github.com/maaz1996/curlybracket.in#readme"
+  "homepage": "https://github.com/maaz1996/curlybracket.in#readme",
+  "dependencies": {
+    "create-react-app": "^3.4.1",
+    "frontend": "^2.0.0-alpha.4"
+  },
+  "devDependencies": {}
 }
