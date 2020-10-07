@@ -12,7 +12,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style="background-image: url(images/image_1.jpg);"
+                    style={{ "background-image": "url('images/image_1.jpg');" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -25,24 +25,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="#">11/13/2019</a> | <a href="#">12 min read</a>
+                        <a href="https://github.com">11/13/2019</a> |{" "}
+                        <a href="https://github.com">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -55,7 +56,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style="background-image: url(images/image_2.jpg);"
+                    style={{ "background-image": "url('images/image_2.jpg');" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -68,24 +69,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="#">11/13/2019</a> | <a href="#">12 min read</a>
+                        <a href="https://github.com">11/13/2019</a> |{" "}
+                        <a href="https://github.com">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -98,7 +100,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style="background-image: url(images/image_3.jpg);"
+                    style={{ "background-image": "url('images/image_3.jpg');" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -111,24 +113,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="#">11/13/2019</a> | <a href="#">12 min read</a>
+                        <a href="https://github.com">11/13/2019</a> |{" "}
+                        <a href="https://github.com">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -141,7 +144,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style="background-image: url(images/image_4.jpg);"
+                    style={{ "background-image": "url('images/image_4.jpg)';" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -154,24 +157,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="#">11/13/2019</a> | <a href="#">12 min read</a>
+                        <a href="https://github.com">11/13/2019</a> |{" "}
+                        <a href="https://github.com">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -184,7 +188,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style="background-image: url(images/image_5.jpg);"
+                    style={{ "background-image": "url('images/image_5.jpg');" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -197,24 +201,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="#">11/13/2019</a> | <a href="#">12 min read</a>
+                        <a href="https://github.com">11/13/2019</a> |{" "}
+                        <a href="https://github.com">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -227,7 +232,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style="background-image: url(images/image_6.jpg);"
+                    style={{ "background-image": "url('images/image_6.jpg');" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -240,24 +245,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="#">11/13/2019</a> | <a href="#">12 min read</a>
+                        <a href="https://github.com">11/13/2019</a> |{" "}
+                        <a href="https://github.com">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -270,7 +276,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style="background-image: url(images/image_7.jpg);"
+                    style={{ "background-image": "url('images/image_7.jpg');" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -283,24 +289,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="#">11/13/2019</a> | <a href="#">12 min read</a>
+                        <a href="https://github.com">11/13/2019</a> |{" "}
+                        <a href="https://github.com">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -313,7 +320,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style="background-image: url(images/image_8.jpg);"
+                    style={{ "background-image": "url('images/image_8.jpg');" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -326,24 +333,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="#">11/13/2019</a> | <a href="#">12 min read</a>
+                        <a href="https://github.com">11/13/2019</a> |{" "}
+                        <a href="https://github.com">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -356,7 +364,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style="background-image: url(images/image_9.jpg);"
+                    style={{ "background-image": "url('images/image_9.jpg');" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -369,24 +377,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="#">
+                        <a href="https://github.com">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="#">11/13/2019</a> | <a href="#">12 min read</a>
+                        <a href="https://github.com">11/13/2019</a> |{" "}
+                        <a href="https://github.com">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -400,25 +409,25 @@ const Posts = () => {
             <div className="block-27">
               <ul>
                 <li>
-                  <a href="#">&lt;</a>
+                  <a href="https://github.com">&lt;</a>
                 </li>
                 <li className="active">
                   <span>1</span>
                 </li>
                 <li>
-                  <a href="#">2</a>
+                  <a href="https://github.com">2</a>
                 </li>
                 <li>
-                  <a href="#">3</a>
+                  <a href="https://github.com">3</a>
                 </li>
                 <li>
-                  <a href="#">4</a>
+                  <a href="https://github.com">4</a>
                 </li>
                 <li>
-                  <a href="#">5</a>
+                  <a href="https://github.com">5</a>
                 </li>
                 <li>
-                  <a href="#">&gt;</a>
+                  <a href="https://github.com">&gt;</a>
                 </li>
               </ul>
             </div>

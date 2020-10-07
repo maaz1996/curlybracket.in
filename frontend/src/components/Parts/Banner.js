@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <div
       className="hero-wrap js-fullheight"
-      style="background-image: url('images/bg_1.jpg');"
+      style={{ "background-image": "url('images/bg_1.jpg')" }}
       data-stellar-background-ratio="0.5"
     >
       <div className="overlay"></div>
@@ -26,7 +26,7 @@ const Banner = () => {
                     coast of the Semantics, a large language ocean.
                   </p>
                   <div className="mouse">
-                    <a href="#" className="mouse-icon">
+                    <a href="https://github.com" className="mouse-icon">
                       <div className="mouse-wheel">
                         <span className="ion-ios-arrow-round-down"></span>
                       </div>

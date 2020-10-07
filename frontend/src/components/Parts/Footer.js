@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="col-md">
             <div className="ftco-footer-widget mb-4">
               <h2 className="logo">
-                <a href="#">
+                <a href="https://github.com">
                   Read<span>it</span>.
                 </a>
               </h2>
@@ -18,17 +18,17 @@ const Footer = () => {
               </p>
               <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li className="ftco-animate">
-                  <a href="#">
+                  <a href="https://github.com">
                     <span className="icon-twitter"></span>
                   </a>
                 </li>
                 <li className="ftco-animate">
-                  <a href="#">
+                  <a href="https://github.com">
                     <span className="icon-facebook"></span>
                   </a>
                 </li>
                 <li className="ftco-animate">
-                  <a href="#">
+                  <a href="https://github.com">
                     <span className="icon-instagram"></span>
                   </a>
                 </li>
@@ -41,27 +41,29 @@ const Footer = () => {
               <div className="block-21 mb-4 d-flex">
                 <a
                   className="img mr-4 rounded"
-                  style="background-image: url(images/image_1.jpg);"
+                  style={{
+                    "background-image": "url('public/images/image_1.jpg')",
+                  }}
                 ></a>
                 <div className="text">
                   <h3 className="heading">
-                    <a href="#">
+                    <a href="https://github.com">
                       Even the all-powerful Pointing has no control about
                     </a>
                   </h3>
                   <div className="meta">
                     <div>
-                      <a href="#">
+                      <a href="https://github.com">
                         <span /> Oct. 16, 2019
                       </a>
                     </div>
                     <div>
-                      <a href="#">
+                      <a href="https://github.com">
                         <span /> Admin
                       </a>
                     </div>
                     <div>
-                      <a href="#">
+                      <a href="https://github.com">
                         <span /> 19
                       </a>
                     </div>
@@ -71,27 +73,29 @@ const Footer = () => {
               <div className="block-21 mb-4 d-flex">
                 <a
                   className="img mr-4 rounded"
-                  style="background-image: url(images/image_2.jpg);"
+                  style={{
+                    "background-image": "url('public/images/image_2.jpg')",
+                  }}
                 ></a>
                 <div className="text">
                   <h3 className="heading">
-                    <a href="#">
+                    <a href="https://github.com">
                       Even the all-powerful Pointing has no control about
                     </a>
                   </h3>
                   <div className="meta">
                     <div>
-                      <a href="#">
+                      <a href="https://github.com">
                         <span /> Oct. 16, 2019
                       </a>
                     </div>
                     <div>
-                      <a href="#">
+                      <a href="https://github.com">
                         <span /> Admin
                       </a>
                     </div>
                     <div>
-                      <a href="#">
+                      <a href="https://github.com">
                         <span /> 19
                       </a>
                     </div>
@@ -105,22 +109,22 @@ const Footer = () => {
               <h2 className="ftco-heading-2">Information</h2>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#" className="py-1 d-block">
+                  <a href="https://github.com" className="py-1 d-block">
                     <span className="ion-ios-arrow-forward mr-3"></span>Home
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="py-1 d-block">
+                  <a href="https://github.com" className="py-1 d-block">
                     <span className="ion-ios-arrow-forward mr-3"></span>About
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="py-1 d-block">
+                  <a href="https://github.com" className="py-1 d-block">
                     <span className="ion-ios-arrow-forward mr-3"></span>Articles
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="py-1 d-block">
+                  <a href="https://github.com" className="py-1 d-block">
                     <span className="ion-ios-arrow-forward mr-3"></span>Contact
                   </a>
                 </li>
@@ -139,13 +143,13 @@ const Footer = () => {
                     </span>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="https://github.com">
                       <span className="icon icon-phone"></span>
                       <span className="text">+2 392 3929 210</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="https://github.com">
                       <span className="icon icon-envelope"></span>
                       <span className="text">info@yourdomain.com</span>
                     </a>

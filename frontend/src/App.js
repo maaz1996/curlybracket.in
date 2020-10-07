@@ -1,9 +1,11 @@
 import React from "react";
-import Header from "./components/Parts/Header";
-import Footer from "./components/Parts/Footer";
-
+import Home from "../src/components/Screens/Home";
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 }
 
 export default App;
