@@ -3,12 +3,7 @@ import Header from "./components/Parts/Header";
 import Footer from "./components/Parts/Footer";
 
 function App() {
-  return (
-    <div>
-      <Header />
-      <Footer />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
