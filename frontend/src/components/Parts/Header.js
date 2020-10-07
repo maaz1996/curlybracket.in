@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header() {
+const Header = () => {
   return (
     <nav
       className="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
@@ -49,5 +49,5 @@ function Header() {
       </div>
     </nav>
   );
-}
+};
 export default Header;
