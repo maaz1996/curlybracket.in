@@ -25,25 +25,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="https://github.com">11/13/2019</a> |{" "}
-                        <a href="https://github.com">12 min read</a>
+                        <a href="#">11/13/2019</a> |{" "}
+                        <a href="#">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -69,25 +69,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="https://github.com">11/13/2019</a> |{" "}
-                        <a href="https://github.com">12 min read</a>
+                        <a href="#">11/13/2019</a> |{" "}
+                        <a href="#">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -113,25 +113,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="https://github.com">11/13/2019</a> |{" "}
-                        <a href="https://github.com">12 min read</a>
+                        <a href="#">11/13/2019</a> |{" "}
+                        <a href="#">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -157,25 +157,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="https://github.com">11/13/2019</a> |{" "}
-                        <a href="https://github.com">12 min read</a>
+                        <a href="#">11/13/2019</a> |{" "}
+                        <a href="#">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -201,25 +201,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="https://github.com">11/13/2019</a> |{" "}
-                        <a href="https://github.com">12 min read</a>
+                        <a href="#">11/13/2019</a> |{" "}
+                        <a href="#">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -245,25 +245,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="https://github.com">11/13/2019</a> |{" "}
-                        <a href="https://github.com">12 min read</a>
+                        <a href="#">11/13/2019</a> |{" "}
+                        <a href="#">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -289,25 +289,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="https://github.com">11/13/2019</a> |{" "}
-                        <a href="https://github.com">12 min read</a>
+                        <a href="#">11/13/2019</a> |{" "}
+                        <a href="#">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -333,25 +333,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="https://github.com">11/13/2019</a> |{" "}
-                        <a href="https://github.com">12 min read</a>
+                        <a href="#">11/13/2019</a> |{" "}
+                        <a href="#">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -377,25 +377,25 @@ const Posts = () => {
                     </h2>
                     <ul className="media-social list-unstyled">
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-twitter"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-facebook"></span>
                         </a>
                       </li>
                       <li className="ftco-animate">
-                        <a href="https://github.com">
+                        <a href="#">
                           <span className="icon-instagram"></span>
                         </a>
                       </li>
                     </ul>
                     <div className="meta">
                       <p className="mb-0">
-                        <a href="https://github.com">11/13/2019</a> |{" "}
-                        <a href="https://github.com">12 min read</a>
+                        <a href="#">11/13/2019</a> |{" "}
+                        <a href="#">12 min read</a>
                       </p>
                     </div>
                   </div>
@@ -409,25 +409,25 @@ const Posts = () => {
             <div className="block-27">
               <ul>
                 <li>
-                  <a href="https://github.com">&lt;</a>
+                  <a href="#">&lt;</a>
                 </li>
                 <li className="active">
                   <span>1</span>
                 </li>
                 <li>
-                  <a href="https://github.com">2</a>
+                  <a href="#">2</a>
                 </li>
                 <li>
-                  <a href="https://github.com">3</a>
+                  <a href="#">3</a>
                 </li>
                 <li>
-                  <a href="https://github.com">4</a>
+                  <a href="#">4</a>
                 </li>
                 <li>
-                  <a href="https://github.com">5</a>
+                  <a href="#">5</a>
                 </li>
                 <li>
-                  <a href="https://github.com">&gt;</a>
+                  <a href="#">&gt;</a>
                 </li>
               </ul>
             </div>
