@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "../Parts/Header";
 import Footer from "../Parts/Footer";
-import Banner from "../Parts/Banner";
+import Banners from "../Parts/Banner";
 import Posts from "../Parts/Posts";
+import Loader from "../Parts/Loader";
 const Home = () => {
   return (
     <>
       <Header />
-      <Banner />
+      <Banners />
       <Posts />
       <Footer />
     </>

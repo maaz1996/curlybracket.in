@@ -12,7 +12,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style={{ "background-image": "url('images/image_1.jpg');" }}
+                    style={{ "background-image": "url(images/image_1.jpg)" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -56,7 +56,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style={{ "background-image": "url('images/image_2.jpg');" }}
+                    style={{ "background-image": "url('images/image_2.jpg')" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -100,7 +100,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style={{ "background-image": "url('images/image_3.jpg');" }}
+                    style={{ "background-image": "url('images/image_3.jpg')" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -144,7 +144,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style={{ "background-image": "url('images/image_4.jpg)';" }}
+                    style={{ "background-image": "url('images/image_4.jpg')" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -188,7 +188,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style={{ "background-image": "url('images/image_5.jpg');" }}
+                    style={{ "background-image": "url('images/image_5.jpg')" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -232,7 +232,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style={{ "background-image": "url('images/image_6.jpg');" }}
+                    style={{ "background-image": "url('images/image_6.jpg')" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -276,7 +276,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style={{ "background-image": "url('images/image_7.jpg');" }}
+                    style={{ "background-image": "url('images/image_7.jpg')" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -320,7 +320,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style={{ "background-image": "url('images/image_8.jpg');" }}
+                    style={{ "background-image": "url('images/image_8.jpg')" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">
@@ -364,7 +364,7 @@ const Posts = () => {
                   <a
                     href="blog-single.html"
                     className="img w-100 mb-3 mb-md-0"
-                    style={{ "background-image": "url('images/image_9.jpg');" }}
+                    style={{ "background-image": "url('images/image_9.jpg')" }}
                   ></a>
                 </div>
                 <div className="col-md-6 col-lg-6 col-xl-4 d-flex">

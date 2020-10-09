@@ -42,7 +42,7 @@ const Footer = () => {
                 <a
                   className="img mr-4 rounded"
                   style={{
-                    "background-image": "url('public/images/image_1.jpg')",
+                    "background-image": "url('images/image_1.jpg')",
                   }}
                 ></a>
                 <div className="text">
@@ -74,7 +74,7 @@ const Footer = () => {
                 <a
                   className="img mr-4 rounded"
                   style={{
-                    "background-image": "url('public/images/image_2.jpg')",
+                    "background-image": "url('images/image_2.jpg')",
                   }}
                 ></a>
                 <div className="text">

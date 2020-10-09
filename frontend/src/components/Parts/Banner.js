@@ -4,9 +4,7 @@ const Banner = () => {
   return (
     <div
       className="hero-wrap js-fullheight"
-      style={{
-        "background-image": "url('../public/images/bg_1.jpg')",
-      }}
+      style={{ "background-image": "url('images/bg_1.jpg')" }}
       data-stellar-background-ratio="0.5"
     >
       <div className="overlay"></div>
