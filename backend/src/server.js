@@ -11,7 +11,7 @@ const { initializeDatabase, pool } = require("./db");
 const app = express();
 const port = Number(process.env.PORT || 4000);
 const categories = new Set(["Technology", "Travel", "Business"]);
-const allowedOrigins = (process.env.FRONTEND_ORIGIN || "http://localhost:3000")
+const allowedOrigins = (process.env.FRONTEND_ORIGIN || "http://localhost:5173")
   .split(",")
   .map((origin) => origin.trim())
   .filter(Boolean);
@@ -94,7 +94,25 @@ function serializePost(row) {
   };
 }
 
-app.get("/api/health", (_req, res) => res.json({ status: "ok" }));
+app.get("/api/health", async (_req, res) => {
+  try {
+    await pool.query("SELECT id FROM posts LIMIT 0");
+    return res.json({
+      status: "ok",
+      server: "ok",
+      database: "ok",
+      checked_at: new Date().toISOString(),
+    });
+  } catch (error) {
+    console.error("Database health check failed:", error.message);
+    return res.status(503).json({
+      status: "degraded",
+      server: "ok",
+      database: "error",
+      checked_at: new Date().toISOString(),
+    });
+  }
+});
 
 app.get("/api/posts", async (req, res, next) => {
   try {

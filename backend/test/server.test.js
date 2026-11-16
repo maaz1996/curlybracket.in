@@ -1,6 +1,7 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { validatePost } = require("../src/server");
+const { app, validatePost } = require("../src/server");
+const { pool } = require("../src/db");
 
 const validPost = {
   title: "A thoughtful story",
@@ -34,4 +35,40 @@ test("rejects non-http cover URLs and oversized story content", () => {
 test("rejects absent and incomplete story data", () => {
   assert.equal(validatePost(null), "A story is required.");
   assert.match(validatePost({ ...validPost, excerpt: " " }), /excerpt is required/);
+});
+
+test("health endpoint reports server and database availability", async (t) => {
+  const originalQuery = pool.query;
+  const originalConsoleError = console.error;
+  const server = app.listen(0, "127.0.0.1");
+  t.after(async () => {
+    pool.query = originalQuery;
+    console.error = originalConsoleError;
+    await new Promise((resolve) => server.close(resolve));
+  });
+  await new Promise((resolve) => server.once("listening", resolve));
+  const address = server.address();
+  const healthUrl = `http://127.0.0.1:${address.port}/api/health`;
+
+  pool.query = async (query) => {
+    assert.equal(query, "SELECT id FROM posts LIMIT 0");
+    return [[], []];
+  };
+  const healthyResponse = await fetch(healthUrl);
+  assert.equal(healthyResponse.status, 200);
+  assert.deepEqual(
+    (({ status, server: api, database }) => ({ status, server: api, database }))(await healthyResponse.json()),
+    { status: "ok", server: "ok", database: "ok" }
+  );
+
+  console.error = () => {};
+  pool.query = async () => {
+    throw new Error("database unavailable");
+  };
+  const unhealthyResponse = await fetch(healthUrl);
+  assert.equal(unhealthyResponse.status, 503);
+  assert.deepEqual(
+    (({ status, server: api, database }) => ({ status, server: api, database }))(await unhealthyResponse.json()),
+    { status: "degraded", server: "ok", database: "error" }
+  );
 });

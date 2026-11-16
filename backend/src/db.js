@@ -14,23 +14,14 @@ const pool = mysql.createPool({
 });
 
 async function initializeDatabase() {
-  await pool.query(`
-    CREATE TABLE IF NOT EXISTS posts (
-      id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-      title VARCHAR(180) NOT NULL,
-      slug VARCHAR(180) NOT NULL UNIQUE,
-      category ENUM('Technology', 'Travel', 'Business') NOT NULL,
-      excerpt VARCHAR(320) NOT NULL,
-      content LONGTEXT NOT NULL,
-      cover_url VARCHAR(2048) NOT NULL,
-      author VARCHAR(100) NOT NULL,
-      status ENUM('draft', 'published') NOT NULL DEFAULT 'draft',
-      published_at DATETIME NULL,
-      created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-      updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-      INDEX posts_status_published (status, published_at)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-  `);
+  try {
+    await pool.query("SELECT id FROM posts LIMIT 0");
+  } catch (error) {
+    if (error.code === "ER_NO_SUCH_TABLE") {
+      throw new Error("The posts table is missing. Run backend/sql/schema.sql in your database console, then restart the API.");
+    }
+    throw error;
+  }
 }
 
 module.exports = { pool, initializeDatabase };

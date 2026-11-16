@@ -4,6 +4,7 @@ import "./index.css";
 
 const API_URL = (import.meta.env.VITE_API_URL || "http://localhost:4000/api").replace(/\/$/, "");
 const CATEGORIES = ["All stories", "Technology", "Travel", "Business"];
+const HEALTH_CHECK_INTERVAL = 30000;
 const DEMO_STORIES = [
   {
     id: "demo-1",
@@ -80,6 +81,86 @@ function Footer() {
       </div>
       <div className="footer-note">Made for the long read <span>© {new Date().getFullYear()}</span></div>
     </footer>
+  );
+}
+
+function AdminHealth() {
+  const [health, setHealth] = useState({
+    server: "checking",
+    database: "checking",
+    checkedAt: null,
+  });
+
+  useEffect(() => {
+    let active = true;
+    let controller;
+
+    async function checkHealth() {
+      controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 8000);
+      try {
+        const response = await fetch(`${API_URL}/health`, {
+          cache: "no-store",
+          signal: controller.signal,
+        });
+        const data = await response.json();
+        if (active) {
+          setHealth({
+            server: data.server === "ok" ? "online" : "offline",
+            database: data.database === "ok" ? "online" : "offline",
+            checkedAt: data.checked_at || new Date().toISOString(),
+          });
+        }
+      } catch {
+        if (active) {
+          setHealth({
+            server: "offline",
+            database: "unknown",
+            checkedAt: new Date().toISOString(),
+          });
+        }
+      } finally {
+        window.clearTimeout(timeout);
+      }
+    }
+
+    checkHealth();
+    const interval = window.setInterval(checkHealth, HEALTH_CHECK_INTERVAL);
+    return () => {
+      active = false;
+      window.clearInterval(interval);
+      if (controller) controller.abort();
+    };
+  }, []);
+
+  const healthy = health.server === "online" && health.database === "online";
+  const checking = health.server === "checking";
+  const alertMessage = health.server === "offline"
+    ? "The API could not be reached. Check its URL, CORS configuration, or server status."
+    : health.database === "offline"
+      ? "The API is reachable, but its database check failed. Check the database connection, TLS settings, and posts table."
+      : "";
+
+  return (
+    <section
+      className={`health-panel${healthy ? " healthy" : checking ? " checking" : " unhealthy"}`}
+      role={healthy || checking ? "status" : "alert"}
+      aria-live="polite"
+      aria-label="Admin system health"
+    >
+      <div className="health-heading">
+        <span className="health-icon" aria-hidden="true">{healthy ? "✓" : checking ? "…" : "!"}</span>
+        <div>
+          <strong>{healthy ? "All systems operational" : checking ? "Checking system health" : "Attention needed"}</strong>
+          <p>{alertMessage || (healthy ? "Your blog API and database are responding normally." : "Contacting the API and database health check.")}</p>
+        </div>
+      </div>
+      <div className="health-services">
+        <span><i className={`health-dot ${health.server}`} /> API server <b>{health.server}</b></span>
+        <span><i className={`health-dot ${health.database}`} /> Database <b>{health.database}</b></span>
+        {health.checkedAt && <small>Checked {new Date(health.checkedAt).toLocaleTimeString()}</small>}
+      </div>
+    </section>
   );
 }
 
@@ -319,6 +400,7 @@ function Admin() {
   return (
     <>
       <Header />
+      <div className="admin-health-wrap"><AdminHealth /></div>
       {!token ? (
         <main className="login-page">
           <Link className="back-link" to="/">← Back to the journal</Link>

@@ -31,7 +31,7 @@ Requirements: Node.js 22.12+, npm, and a MySQL 8-compatible database.
    npm start
    ```
 
-The site runs at `http://localhost:5173`, the API at `http://localhost:4000`, and the admin page at `http://localhost:5173/admin`. The API creates the posts table on startup. If the API is not connected, the homepage displays clearly labeled sample stories; replace them by publishing from the admin page once the database is configured.
+Before starting the API, run [`backend/sql/schema.sql`](backend/sql/schema.sql) in your MySQL database console to create the posts table. The API checks that the table exists at startup and does not need schema-creation privileges. Its database user needs `SELECT`, `INSERT`, `UPDATE`, and `DELETE` access on the `posts` table. The site runs at `http://localhost:5173`, the API at `http://localhost:4000`, and the admin page at `http://localhost:5173/admin`. If the API is not connected, the homepage displays clearly labeled sample stories; replace them by publishing from the admin page once the database is configured.
 
 ## Deploy on free tiers
 
@@ -39,7 +39,7 @@ The simplest split setup is **Netlify (React frontend) + Render (Node API) + TiD
 
 ### 1. Create the database
 
-Create a TiDB Serverless cluster and copy its connection settings. Enable TLS for the connection. Create the database if the provider does not create one for you. This API initializes the `posts` table automatically.
+Create a TiDB Serverless cluster and copy its connection settings. Enable TLS for the connection. Create the database if the provider does not create one for you. In the TiDB SQL Editor, run [`backend/sql/schema.sql`](backend/sql/schema.sql) as a database user with permission to create tables. The API’s configured database user only needs `SELECT`, `INSERT`, `UPDATE`, and `DELETE` privileges on `posts`.
 
 ### 2. Deploy the API on Render
 
@@ -77,7 +77,7 @@ Visit `https://your-site.netlify.app/admin` to sign in and publish your first st
 
 ## API
 
-- `GET /api/health`
+- `GET /api/health` (checks API and `posts` table connectivity; returns HTTP 503 when the database check fails)
 - `GET /api/posts` and `GET /api/posts/:slug` (published stories only)
 - `POST /api/admin/login`
 - `GET /api/admin/posts`
