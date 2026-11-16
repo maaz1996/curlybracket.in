@@ -62,12 +62,6 @@ Add these environment variables in Render:
 
 After deploy, note the API URL, for example `https://your-api.onrender.com`.
 
-### Optional: scheduled health checks
-
-The GitHub Actions workflow at `.github/workflows/keep-services-active.yml` checks the API and database every 10 minutes. To enable it, push the workflow to the repository's default branch, then add a repository Actions variable named `BACKEND_HEALTH_URL` with the full health endpoint, for example `https://your-api.onrender.com/api/health`. You can also run it manually from **GitHub → Actions → Check blog services → Run workflow**. A failed check is reported as a failed workflow run.
-
-This sends regular traffic and can keep a Render Free web service from sleeping, but Render's free instance hours are shared across services in the workspace; continuous uptime can use most of the monthly allowance. GitHub scheduled runs can be delayed or skipped and are not an uptime guarantee. Health checks do not protect database contents from provider retention, expiration, or deletion policies; keep independent backups and review the database plan's terms.
-
 ### 3. Deploy the frontend on Netlify
 
 Import the same Git repository as a new Netlify site:
