@@ -1,6 +1,6 @@
 # Curlybracket
 
-An editorial blog about technology, travel, and entrepreneurship. The frontend is a React single-page app; the API is Express and MySQL. Readers can browse, filter, search, and read published stories. The `/admin` page supports writing, editing, publishing, saving drafts, and deleting stories.
+An editorial blog about technology, travel, and entrepreneurship. The frontend is a React single-page app; the API is Express and MySQL. Readers can browse, filter, search, and read published stories. The `/admin` page supports writing, editing, publishing, saving drafts, and deleting stories, including stories under custom topics.
 
 ## Run locally
 
@@ -31,7 +31,7 @@ Requirements: Node.js 22.12+, npm, and a MySQL 8-compatible database.
    npm start
    ```
 
-Before starting the API, run [`backend/sql/schema.sql`](backend/sql/schema.sql) in your MySQL database console to create the posts table. The API checks that the table exists at startup and does not need schema-creation privileges. Its database user needs `SELECT`, `INSERT`, `UPDATE`, and `DELETE` access on the `posts` table. The site runs at `http://localhost:5173`, the API at `http://localhost:4000`, and the admin page at `http://localhost:5173/admin`. If the API is not connected, the homepage displays clearly labeled sample stories; replace them by publishing from the admin page once the database is configured.
+Before starting the API, run [`backend/sql/schema.sql`](backend/sql/schema.sql) in your MySQL database console to create the posts table. For an existing installation, run [`backend/sql/migrations/2026-11-20-custom-topic.sql`](backend/sql/migrations/2026-11-20-custom-topic.sql) to enable custom topic names. The API checks that the table exists at startup and does not need schema-creation privileges. Its database user needs `SELECT`, `INSERT`, `UPDATE`, and `DELETE` access on the `posts` table. The site runs at `http://localhost:5173`, the API at `http://localhost:4000`, and the admin page at `http://localhost:5173/admin`. If the API is not connected, the homepage displays clearly labeled sample stories; replace them by publishing from the admin page once the database is configured.
 
 ## Deploy on free tiers
 
