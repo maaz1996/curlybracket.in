@@ -180,9 +180,9 @@ function slugify(value) {
   return value.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
-function StoryCard({ story, featured = false }) {
+function StoryCard({ story }) {
   return (
-    <Link className={`story-card${featured ? " featured-card" : ""}`} to={`/article/${story.slug}`}>
+    <Link className="story-card" to={`/article/${story.slug}`}>
       <div className="story-image-wrap">
         <img className="story-image" src={story.cover_url} alt="" loading="lazy" />
         <span className="category-tag">{story.category}</span>
@@ -220,8 +220,6 @@ function Home() {
     const term = search.trim().toLowerCase();
     return matchesCategory && (!term || `${story.title} ${story.excerpt} ${story.category}`.toLowerCase().includes(term));
   });
-  const [featured, ...moreStories] = filteredStories;
-
   return (
     <>
       <Header />
@@ -254,8 +252,7 @@ function Home() {
           {apiMessage && <p className="notice">{apiMessage}</p>}
           {loading ? <p className="empty-state">Gathering stories...</p> : filteredStories.length ? (
             <div className="story-grid">
-              <StoryCard story={featured} featured />
-              {moreStories.map((story) => <StoryCard key={story.id || story.slug} story={story} />)}
+              {filteredStories.map((story) => <StoryCard key={story.id || story.slug} story={story} />)}
             </div>
           ) : <p className="empty-state">No stories here yet. Try another topic.</p>}
           <div className="journal-note"><span>01</span><p>A little curiosity goes a long way.</p><span>✳</span></div>
