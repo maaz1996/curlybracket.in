@@ -10,7 +10,7 @@ const { initializeDatabase, pool } = require("./db");
 
 const app = express();
 const port = Number(process.env.PORT || 4000);
-const categories = new Set(["Technology", "Travel", "Business"]);
+const standardCategories = ["Technology", "Travel", "Business"];
 const allowedOrigins = (process.env.FRONTEND_ORIGIN || "http://localhost:5173")
   .split(",")
   .map((origin) => origin.trim())
@@ -66,14 +66,13 @@ function validatePost(body) {
   for (const field of fields) {
     if (typeof body[field] !== "string" || !body[field].trim()) return `${field.replace("_", " ")} is required.`;
   }
-  if (body.title.length > 180 || body.slug.length > 180 || body.excerpt.length > 320 || body.author.length > 100) {
+  if (body.title.length > 180 || body.slug.length > 180 || body.category.trim().length > 100 || body.excerpt.length > 320 || body.author.length > 100) {
     return "One or more fields exceed the allowed length.";
   }
   if (body.cover_url.length > 2048) return "The cover image URL is too long.";
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(body.slug)) {
     return "The URL slug may only contain lowercase letters, numbers, and single hyphens.";
   }
-  if (!categories.has(body.category)) return "Choose Technology, Travel, or Business as the topic.";
   if (body.status !== "draft" && body.status !== "published") return "Choose draft or published as the status.";
   if (body.content.length > 50000) return "The story must be shorter than 50,000 characters.";
   try {
@@ -117,12 +116,20 @@ app.get("/api/health", async (_req, res) => {
 app.get("/api/posts", async (req, res, next) => {
   try {
     const category = req.query.category;
-    if (category && !categories.has(category)) return res.status(400).json({ error: "Unknown story topic." });
+    if (category && (typeof category !== "string" || category.length > 100)) {
+      return res.status(400).json({ error: "Unknown story topic." });
+    }
+    const categoryFilter = category === "Custom"
+      ? "AND category NOT IN (?, ?, ?)"
+      : category ? "AND category = ?" : "";
+    const categoryValues = category === "Custom"
+      ? standardCategories
+      : category ? [category] : [];
     const [rows] = await pool.query(
       `SELECT id, title, slug, category, excerpt, cover_url, author, status, published_at, created_at, updated_at
-       FROM posts WHERE status = 'published' ${category ? "AND category = ?" : ""}
+       FROM posts WHERE status = 'published' ${categoryFilter}
        ORDER BY published_at DESC, id DESC`,
-      category ? [category] : []
+      categoryValues
     );
     return res.json({ posts: rows.map(serializePost) });
   } catch (error) {
@@ -180,7 +187,7 @@ app.post("/api/admin/posts", authorizeAdmin, async (req, res, next) => {
     const [result] = await pool.execute(
       `INSERT INTO posts (title, slug, category, excerpt, content, cover_url, author, status, published_at)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, IF(? = 'published', CURRENT_TIMESTAMP, NULL))`,
-      [post.title.trim(), post.slug, post.category, post.excerpt.trim(), post.content.trim(), post.cover_url.trim(), post.author.trim(), post.status, post.status]
+      [post.title.trim(), post.slug, post.category.trim(), post.excerpt.trim(), post.content.trim(), post.cover_url.trim(), post.author.trim(), post.status, post.status]
     );
     const [rows] = await pool.execute("SELECT * FROM posts WHERE id = ?", [result.insertId]);
     return res.status(201).json({ post: serializePost(rows[0]) });
@@ -199,7 +206,7 @@ app.put("/api/admin/posts/:id", authorizeAdmin, async (req, res, next) => {
       `UPDATE posts SET title = ?, slug = ?, category = ?, excerpt = ?, content = ?, cover_url = ?, author = ?, status = ?,
        published_at = IF(? = 'published', COALESCE(published_at, CURRENT_TIMESTAMP), NULL)
        WHERE id = ?`,
-      [post.title.trim(), post.slug, post.category, post.excerpt.trim(), post.content.trim(), post.cover_url.trim(), post.author.trim(), post.status, post.status, req.params.id]
+      [post.title.trim(), post.slug, post.category.trim(), post.excerpt.trim(), post.content.trim(), post.cover_url.trim(), post.author.trim(), post.status, post.status, req.params.id]
     );
     const [rows] = await pool.execute("SELECT * FROM posts WHERE id = ?", [req.params.id]);
     if (!rows.length) return res.status(404).json({ error: "Story not found." });

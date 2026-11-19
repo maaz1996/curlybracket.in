@@ -3,8 +3,15 @@ import { BrowserRouter, Link, Route, Switch, useParams } from "react-router-dom"
 import "./index.css";
 
 const API_URL = (import.meta.env.VITE_API_URL || "http://localhost:4000/api").replace(/\/$/, "");
-const CATEGORIES = ["All stories", "Technology", "Travel", "Business"];
+const TOPICS = ["Technology", "Travel", "Business"];
+const CATEGORIES = ["All stories", ...TOPICS, "Custom"];
 const HEALTH_CHECK_INTERVAL = 30000;
+const DEFAULT_COVER_URLS = {
+  Technology: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=85",
+  Travel: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=85",
+  Business: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=85",
+  Custom: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=85",
+};
 const DEMO_STORIES = [
   {
     id: "demo-1",
@@ -208,7 +215,8 @@ function Home() {
   }, []);
 
   const filteredStories = stories.filter((story) => {
-    const matchesCategory = category === "All stories" || story.category === category;
+    const matchesCategory = category === "All stories"
+      || (category === "Custom" ? !TOPICS.includes(story.category) : story.category === category);
     const term = search.trim().toLowerCase();
     return matchesCategory && (!term || `${story.title} ${story.excerpt} ${story.category}`.toLowerCase().includes(term));
   });
@@ -293,7 +301,7 @@ function Article() {
   );
 }
 
-const EMPTY_FORM = { title: "", slug: "", category: "Technology", excerpt: "", content: "", cover_url: "", author: "Maaz", status: "draft" };
+const EMPTY_FORM = { title: "", slug: "", category: "Technology", excerpt: "", content: "", cover_url: DEFAULT_COVER_URLS.Technology, author: "Maaz", status: "draft" };
 
 function Admin() {
   const [token, setToken] = useState(() => localStorage.getItem("curlybracket_admin_token") || "");
@@ -301,6 +309,7 @@ function Admin() {
   const [password, setPassword] = useState("");
   const [posts, setPosts] = useState([]);
   const [form, setForm] = useState(EMPTY_FORM);
+  const [customCategory, setCustomCategory] = useState("");
   const [editingId, setEditingId] = useState(null);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
@@ -340,7 +349,9 @@ function Admin() {
 
   function startEdit(post) {
     setEditingId(post.id);
-    setForm({ title: post.title, slug: post.slug, category: post.category, excerpt: post.excerpt, content: post.content, cover_url: post.cover_url, author: post.author, status: post.status });
+    const isCustomCategory = !TOPICS.includes(post.category);
+    setForm({ title: post.title, slug: post.slug, category: isCustomCategory ? "Custom" : post.category, excerpt: post.excerpt, content: post.content, cover_url: post.cover_url, author: post.author, status: post.status });
+    setCustomCategory(isCustomCategory ? post.category : "");
     setMessage("");
     setError("");
     window.scrollTo(0, 0);
@@ -349,6 +360,7 @@ function Admin() {
   function resetEditor() {
     setEditingId(null);
     setForm(EMPTY_FORM);
+    setCustomCategory("");
     setError("");
     setMessage("");
   }
@@ -358,14 +370,20 @@ function Admin() {
     setBusy(true);
     setError("");
     setMessage("");
+    const story = {
+      ...form,
+      category: form.category === "Custom" ? customCategory.trim() : form.category,
+      cover_url: form.cover_url.trim() || DEFAULT_COVER_URLS[form.category],
+    };
+    if (!form.cover_url.trim()) setForm({ ...form, cover_url: story.cover_url });
     try {
       const data = await request(editingId ? `/admin/posts/${editingId}` : "/admin/posts", {
         method: editingId ? "PUT" : "POST",
         token,
-        body: JSON.stringify(form),
+        body: JSON.stringify(story),
       });
       await loadPosts();
-      setMessage(form.status === "published" ? "Story published." : "Draft saved.");
+      setMessage(story.status === "published" ? "Story published." : "Draft saved.");
       if (!editingId && data.post) setEditingId(data.post.id);
     } catch (saveError) {
       setError(saveError.message);
@@ -424,14 +442,22 @@ function Admin() {
             <form className="editor-panel" onSubmit={savePost}>
               <div className="editor-heading"><h2>{editingId ? "Edit story" : "New story"}</h2>{editingId && <button className="quiet-button" type="button" onClick={resetEditor}>New story +</button>}</div>
               <label>Title<input required maxLength="180" value={form.title} onChange={(event) => { const title = event.target.value; setForm({ ...form, title, ...(!editingId && (!form.slug || form.slug === slugify(form.title)) ? { slug: slugify(title) } : {}) }); }} placeholder="A title worth stopping for" /></label>
-              <label>URL slug<input required maxLength="180" value={form.slug} onChange={(event) => setForm({ ...form, slug: event.target.value })} placeholder="your-story-title" /></label>
+              <label>URL slug<input required maxLength="180" value={form.slug} onChange={(event) => setForm({ ...form, slug: event.target.value })} placeholder="your-story-title" /><span className="field-hint">This becomes the readable link to your story. It is generated from the title and can be changed.</span></label>
               <div className="form-row">
-                <label>Topic<select value={form.category} onChange={(event) => setForm({ ...form, category: event.target.value })}>{CATEGORIES.slice(1).map((item) => <option key={item}>{item}</option>)}</select></label>
+                <label>Topic<select value={form.category} onChange={(event) => {
+                  const category = event.target.value;
+                  setForm({ ...form, category, cover_url: DEFAULT_COVER_URLS[category] });
+                  if (category === "Custom") setCustomCategory("");
+                }}>{[...TOPICS, "Custom"].map((item) => <option key={item}>{item}</option>)}</select></label>
                 <label>Byline<input required maxLength="100" value={form.author} onChange={(event) => setForm({ ...form, author: event.target.value })} /></label>
               </div>
+              {form.category === "Custom" && <label>Custom topic<input required maxLength="100" value={customCategory} onChange={(event) => setCustomCategory(event.target.value)} placeholder="e.g. Food, culture, or personal essays" /><span className="field-hint">Name the topic for this story. It will appear on the story and in the Custom filter.</span></label>}
               <label>Short introduction<textarea required rows="3" maxLength="320" value={form.excerpt} onChange={(event) => setForm({ ...form, excerpt: event.target.value })} placeholder="What will readers take away?" /></label>
-              <label>Cover image URL<input required type="url" value={form.cover_url} onChange={(event) => setForm({ ...form, cover_url: event.target.value })} placeholder="https://..." /></label>
-              {form.cover_url && <img className="cover-preview" src={form.cover_url} alt="Cover preview" onError={(event) => { event.currentTarget.style.display = "none"; }} onLoad={(event) => { event.currentTarget.style.display = "block"; }} />}
+              <div className="cover-field">
+                <label>Cover image URL<input type="url" value={form.cover_url} onChange={(event) => setForm({ ...form, cover_url: event.target.value })} onBlur={() => { if (!form.cover_url.trim()) setForm({ ...form, cover_url: DEFAULT_COVER_URLS[form.category] }); }} placeholder="https://..." /><span className="field-hint">A high-resolution photo is selected for this topic. Replace it with your own, or restore the topic default.</span></label>
+                <button className="quiet-button cover-default-button" type="button" onClick={() => setForm({ ...form, cover_url: DEFAULT_COVER_URLS[form.category] })}>Use default topic photo</button>
+                {form.cover_url && <img className="cover-preview" src={form.cover_url} alt="Cover preview" onError={(event) => { event.currentTarget.style.display = "none"; }} onLoad={(event) => { event.currentTarget.style.display = "block"; }} />}
+              </div>
               <label>Story<textarea className="content-input" required rows="14" value={form.content} onChange={(event) => setForm({ ...form, content: event.target.value })} placeholder="Write your story here. Separate paragraphs with a blank line." /></label>
               <div className="publish-row"><label className="status-select">Status<select value={form.status} onChange={(event) => setForm({ ...form, status: event.target.value })}><option value="draft">Draft</option><option value="published">Published</option></select></label><button className="primary-button" disabled={busy}>{busy ? "Saving..." : form.status === "published" ? "Publish story" : "Save draft"} <span>↗</span></button></div>
             </form>
